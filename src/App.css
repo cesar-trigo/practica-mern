@@ -1,3 +1,48 @@
+#root{
+  background-color: #282c34;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100Vh;
+}
+
+.card{
+  background-color: rgba(127, 255, 212, 0.61);
+  width: 16rem;
+  min-height: 14rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.title{
+  background-color: blue;
+  text-align: center;
+}
+
+.image{
+  width: 100%;
+  height: 50%;
+}
+
+.botoms{
+  display: flex;
+  justify-content: space-between;
+}
+
+.descriptions{
+  margin: .5rem;
+  padding: .5rem;
+  border: solid 2px yellow;
+}
+
+
+
+
+
+
+
+
+
 .App {
   text-align: center;
 }

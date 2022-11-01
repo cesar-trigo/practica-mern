@@ -1,24 +1,38 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Card from './components/Card';
+import data from './data/events1'
+import { useState } from 'react';
+import CardCompleta from './components/CardCompleta';
 
 function App() {
+  let [mostrarOcultar,setMostrarOcultar] = useState(false)
+  let [numeroCambiar, setNumeroCambiar] = useState(0)
+
+  let hide = () => {
+    setMostrarOcultar(!mostrarOcultar)
+  }
+
+  let next = () => {
+    if (numeroCambiar < data.length - 1) {
+      setNumeroCambiar(++numeroCambiar)
+    } else {
+      setNumeroCambiar(0)
+    }
+  }
+  let back = () => {
+    if (numeroCambiar > 0) {
+      setNumeroCambiar(--numeroCambiar)
+    } else {
+      setNumeroCambiar(data.length - 1)
+    }
+  }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Cesar <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    mostrarOcultar ? 
+    (<Card category={data[numeroCambiar].category} image={data[numeroCambiar].image} next={next} hide={hide} back={back} />) 
+    :
+    (<CardCompleta category={data[numeroCambiar].category} image={data[numeroCambiar].image} name={data[numeroCambiar].name} description={data[numeroCambiar].description}  next={next} hide={hide} back={back} />) 
   );
 }
 //linea 8 para utilizar una variable de JS, se emplea directa con {}
